@@ -1,47 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
-*{
+
+* {
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
-body{
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+body {
     background-color: black;
 }
 
-nav{
-    width: 100%;
+nav {
     height: 10vh;
 }
 
-.container{
-    width: 100%;
-    height: 100%;
+.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
 }
 
-.container .logo img{
-    margin-left: 20px;
-    width: 100px;
+.container .logo img {
+    width: 80px;
     filter: drop-shadow(2px 2px 2px white);
 }
 
-.container .links a{
+.container .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.container .hamburger i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.container .links {
+    display: flex;
+}
+
+.links {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.links a {
     color: white;
     text-decoration: none;
     cursor: pointer;
-    position: relative;
-    margin: 0 20px;
     transition: 0.3s linear;
+    position: relative;
 }
 
-.links a::before{
+.links a::before {
     content: "";
     position: absolute;
     left: 0;
@@ -53,73 +70,58 @@ nav{
 }
 
 .links a:hover::before,
-.links a:hover{
+.links a:hover {
     color: blue;
     width: 100%;
 }
 
-.container .search i{
-    color: white;
-    cursor: pointer;
-    font-size: 1.3rem;
-    margin-right: 20px;
-}
-
-/* Section Starts */
-
-section{
-    width: 100%;
-    height: 90vh;
-}
-
-section .content{
+.content {
     display: flex;
-    width: 100%;
-    height: 100%;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding: 20px;
 }
 
-.content .main-content{
+.main-content {
     color: white;
     max-width: 600px;
     width: 100%;
-    margin: 0 auto;
+    text-align: center;
 }
 
-.main-content h1{
+.main-content h1 {
     font-size: clamp(2rem, 1rem + 5vw, 4rem);
 }
 
-.main-content h2{
+.main-content h2 {
     color: blue;
     font-size: clamp(2rem, 1rem + 5vw, 3.5rem);
 }
 
-.main-content p{
+.main-content p {
     margin-top: 10px;
     color: #635e5c;
 }
 
-.main-content .order{
+.order {
     display: flex;
-    margin: 20px 10px;
-    width: 100%;
+    margin: 20px 0;
     justify-content: space-around;
     min-height: 7vh;
 }
 
-.order h3{
+.order h3 {
     font-size: 1.8rem;
 }
 
-.order button{
+.order button {
     min-width: 50%;
     margin-left: 10px;
     border: none;
     outline: none;
     border-radius: 10px;
-    background: linear-gradient(to bottom right, #f74f10 40%, #8a3313) ;
+    background: linear-gradient(to bottom right, #f74f10 40%, #8a3313);
     color: white;
     font-weight: 700;
     padding: 0 2px;
@@ -127,46 +129,42 @@ section .content{
     transition: 0.1s linear;
 }
 
-.order button:hover{
-    box-shadow:  0 0 30px yellowgreen;
-    background: linear-gradient(to bottom right, #8a3313 ,  #f74f10 40%) ;
+.order button:hover {
+    box-shadow: 0 0 30px yellowgreen;
+    background: linear-gradient(to bottom right, #8a3313, #f74f10 40%);
 }
 
-.content .image img{
-    max-width: 450px;
-    width: 100%;
-    margin-right: 100px;
-    transform: rotate(40deg) translateX(900px);
+.image img {
+    max-width: 100%;
+    margin-top: 20px;
     filter: drop-shadow(-10px -10px 200px #f74f10);
 }
-/* Section Ends */
-@media (max-width:800px){
-    .content{
-        flex-direction: column-reverse;
-    }
 
-    .main-content{
-        margin: 0 10px;
-    }
-
-    .content .image img{
-        margin-right: 0;
-    }
-}
-
-@media (min-width:884px){
-    .content .image img{
-        min-width: 50%;
-    }
-}
-
-@media (max-width:440px){
-    .links{
+@media (max-width: 800px) {
+    .container .links {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: black;
+        width: 100%;
+        text-align: center;
     }
 
-    .content .image img{
-        width: 100%;
-        margin-right: 0;
+    .container .hamburger {
+        display: block;
+    }
+
+    .container .hamburger i {
+        font-size: 1.8rem;
+    }
+
+    .container .links.active {
+        display: flex;
+    }
+
+    .links a {
+        margin: 10px 0;
     }
 }
