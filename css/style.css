@@ -29,14 +29,20 @@ nav {
 
 .container .hamburger {
     display: none;
-    background: none;
+    background: #333; /* Fondo del botón */
     border: none;
     cursor: pointer;
+    padding: 10px; /* Relleno para mejorar el clic táctil */
+    transition: background 0.3s ease; /* Transición al fondo del botón */
 }
 
 .container .hamburger i {
     font-size: 1.5rem;
     color: white;
+}
+
+.container .hamburger:hover {
+    background: #555; /* Cambio de color de fondo al pasar el ratón */
 }
 
 .container .links {
@@ -54,8 +60,7 @@ nav {
     color: white;
     text-decoration: none;
     cursor: pointer;
-    transition: 0.3s linear;
-    position: relative;
+    transition: color 0.3s ease, width 0.3s ease; /* Transición al color y al subrayado */
 }
 
 .links a::before {
@@ -166,5 +171,18 @@ nav {
 
     .links a {
         margin: 10px 0;
+    }
+}
+
+@media (min-width: 800px) {
+    .container .links.active {
+        display: flex;
+        justify-content: space-around; /* Agregado espaciado entre elementos */
+        align-items: center;
+        width: 100%;
+    }
+
+    .links a {
+        margin: 0 10px; /* Agregado margen entre elementos */
     }
 }
